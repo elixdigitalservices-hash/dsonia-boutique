@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(open /Users/ferlu/Desktop/SONIA/index.html)"
+    ]
+  }
+}
