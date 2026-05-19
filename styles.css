@@ -400,7 +400,7 @@ ul  { list-style:none; }
    ========================================= */
 .colecciones-preview {
   background:
-    linear-gradient(rgba(247,241,231,.88), rgba(247,241,231,.88)),
+    linear-gradient(rgba(247,241,231,.68), rgba(247,241,231,.68)),
     url('FOTOS/fondo_botanico_dsonia_oro_rosa_sutil.png') center/620px repeat,
     var(--crema);
 }
