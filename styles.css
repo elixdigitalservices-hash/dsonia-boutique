@@ -1082,7 +1082,13 @@ ul  { list-style:none; }
 /* =========================================
    COLECCIONES PAGE
    ========================================= */
-.col-page { background:var(--crema); padding:5rem 2rem; }
+.col-page {
+  background:
+    linear-gradient(rgba(247,241,231,.68), rgba(247,241,231,.68)),
+    url('FOTOS/fondo_botanico_dsonia_oro_rosa_sutil.png') center/620px repeat,
+    var(--crema);
+  padding:5rem 2rem;
+}
 .col-page-inner { max-width:1280px; margin:0 auto; }
 
 .col-featured {
