@@ -1267,12 +1267,7 @@ ul  { list-style:none; }
   color:rgba(197,164,109,.1);
   line-height:1;
 }
-.sonia-full-foto-deco {
-  position:absolute; inset:0;
-  background:
-    radial-gradient(ellipse at 35% 70%, rgba(197,164,109,.2) 0%, transparent 60%),
-    radial-gradient(ellipse at 70% 25%, rgba(122,16,33,.28) 0%, transparent 50%);
-}
+
 .valores-grid {
   display:grid;
   grid-template-columns:1fr 1fr;
