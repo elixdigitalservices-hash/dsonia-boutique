@@ -1432,7 +1432,8 @@ ul  { list-style:none; }
 
 /* Sonia full foto (contacto) */
 .sonia-full-foto { overflow: hidden; }
-.sonia-full-foto img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; }
+.sonia-full-foto img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; transition: transform .7s var(--ease); }
+.sonia-full-foto:hover img { transform: scale(1.08); }
 
 /* =========================================
    RESPONSIVE
