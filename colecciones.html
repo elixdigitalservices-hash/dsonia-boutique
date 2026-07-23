@@ -53,10 +53,22 @@
     <!-- 1. Ropa de diario -->
     <div class="col-featured" id="diario">
       <div class="col-feat-visual fade-left">
-        <div class="col-feat-img">
-          <img src="FOTOS/Tienda/d06029f8-7386-40d5-b6dd-fb2710287e32.png" alt="Ropa de diario D'Sonia Boutique">
-          <span class="col-feat-num">01</span>
+        <div class="cs-stack" id="csStackCasual" role="button" tabindex="0" aria-label="Cambiar imagen de la pila de tarjetas de Ropa Casual">
+          <div class="cs-card" data-pos="0">
+            <img src="FOTOS/casual/IMG_6747.jpeg" alt="Ropa casual D'Sonia Boutique">
+          </div>
+          <div class="cs-card" data-pos="1">
+            <img src="FOTOS/casual/11.png" alt="Ropa casual D'Sonia Boutique">
+          </div>
+          <div class="cs-card" data-pos="2">
+            <img src="FOTOS/casual/IMG_6776.jpeg" alt="Ropa casual D'Sonia Boutique">
+          </div>
+          <div class="cs-card" data-pos="3">
+            <img src="FOTOS/casual/ChatGPT Image 20 may 2026, 12_20_46.png" alt="Ropa casual D'Sonia Boutique">
+          </div>
+          <span class="cs-hint">Toca la pila</span>
         </div>
+        <span class="col-feat-num">01</span>
       </div>
       <div class="col-feat-content fade-right">
         <span class="section-tag">Colección</span>
@@ -352,6 +364,25 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up,.fade-left,.fade-right').forEach(el => observer.observe(el));
+
+  // Card stack effect (Ropa Casual)
+  const csStack = document.getElementById('csStackCasual');
+  if (csStack) {
+    const csCards = Array.from(csStack.querySelectorAll('.cs-card'));
+    const cycleStack = () => {
+      csCards.forEach(card => {
+        const pos = (parseInt(card.dataset.pos, 10) + csCards.length - 1) % csCards.length;
+        card.dataset.pos = pos;
+      });
+    };
+    csStack.addEventListener('click', cycleStack);
+    csStack.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        cycleStack();
+      }
+    });
+  }
 </script>
 </body>
 </html>

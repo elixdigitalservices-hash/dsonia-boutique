@@ -1120,6 +1120,45 @@ ul  { list-style:none; }
   z-index:2;
   user-select:none;
 }
+/* Card stack (Ropa Casual) */
+.cs-stack {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.cs-card {
+  position: absolute;
+  top: 9%; left: 9%;
+  width: 82%; height: 82%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(5,5,5,.28);
+  transition: transform .6s var(--ease), box-shadow .6s var(--ease), filter .6s var(--ease);
+}
+.cs-card img { width:100%; height:100%; object-fit:cover; display:block; pointer-events:none; }
+.cs-card[data-pos="0"] { transform: rotate(0deg)   translate(0,0)      scale(1);    z-index:4; filter:brightness(1); }
+.cs-card[data-pos="1"] { transform: rotate(-5deg)  translate(-14px,8px)  scale(.97); z-index:3; filter:brightness(.93); }
+.cs-card[data-pos="2"] { transform: rotate(4deg)   translate(10px,14px)  scale(.94); z-index:2; filter:brightness(.86); }
+.cs-card[data-pos="3"] { transform: rotate(-3deg)  translate(-6px,20px)  scale(.91); z-index:1; filter:brightness(.8); }
+.cs-stack:hover .cs-card[data-pos="0"] { transform: rotate(0deg) translate(0,-6px) scale(1.02); box-shadow: 0 30px 70px rgba(5,5,5,.34); }
+.cs-hint {
+  position: absolute;
+  bottom: .9rem; right: .9rem;
+  z-index: 5;
+  background: rgba(5,5,5,.55);
+  color: var(--blanco);
+  font-family: var(--sans);
+  font-size: .58rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: .5rem .9rem;
+  border-radius: 30px;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+}
+
 .col-feat-content {}
 .col-feat-tags {
   display:flex;
