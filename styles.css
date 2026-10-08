@@ -5,24 +5,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap');
 
 :root {
-  --negro:    #050505;
+  /* Paleta boutique: blanco · beige · rosa empolvado */
+  --negro:    #4B3A3E;   /* cacao rosado (texto principal) */
   --blanco:   #FFFFFF;
-  --crema:    #F7F1E7;
-  --beige:    #E8D9C5;
-  --burdeos:  #7A1021;
-  --rojo:     #C8102E;
-  --terracota:#B85C45;
-  --dorado:   #C5A46D;
-  --gris:     #68625D;
-  --verde:    #1F3430;
+  --crema:    #FBF5F1;
+  --beige:    #EEDFD3;
+  --burdeos:  #B14A72;   /* rosa ciruela (acento / botones) */
+  --rojo:     #E7B8BD;
+  --terracota:#D4A59A;
+  --dorado:   #C2A07A;
+  --gris:     #7D6E6B;
+  --verde:    #A8B5A2;
+  --rosa:       #E7B8BD;
+  --rosa-suave: #F8E8E6;
+  --rosa-polvo: #F3E1DD;
 
   --serif:    'Playfair Display', Georgia, serif;
   --sans:     'Montserrat', sans-serif;
 
   --ease:     cubic-bezier(0.4, 0, 0.2, 1);
   --t:        all 0.35s var(--ease);
-  --shadow:   0 4px 30px rgba(5,5,5,.12);
-  --shadow-h: 0 8px 40px rgba(5,5,5,.22);
+  --shadow:   0 4px 30px rgba(140,90,100,.12);
+  --shadow-h: 0 8px 40px rgba(140,90,100,.22);
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -1131,18 +1135,20 @@ ul  { list-style:none; }
 }
 .cs-card {
   position: absolute;
+  opacity: 0; z-index: 0;
+  transform: rotate(-3deg) translate(-6px,20px) scale(.91);
   top: 9%; left: 9%;
   width: 82%; height: 82%;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 25px 60px rgba(5,5,5,.28);
-  transition: transform .6s var(--ease), box-shadow .6s var(--ease), filter .6s var(--ease);
+  transition: transform .6s var(--ease), box-shadow .6s var(--ease), filter .6s var(--ease), opacity .6s var(--ease);
 }
 .cs-card img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; pointer-events:none; }
-.cs-card[data-pos="0"] { transform: rotate(0deg)   translate(0,0)      scale(1);    z-index:4; filter:brightness(1); }
-.cs-card[data-pos="1"] { transform: rotate(-5deg)  translate(-14px,8px)  scale(.97); z-index:3; filter:brightness(.93); }
-.cs-card[data-pos="2"] { transform: rotate(4deg)   translate(10px,14px)  scale(.94); z-index:2; filter:brightness(.86); }
-.cs-card[data-pos="3"] { transform: rotate(-3deg)  translate(-6px,20px)  scale(.91); z-index:1; filter:brightness(.8); }
+.cs-card[data-pos="0"] { opacity:1; transform: rotate(0deg)   translate(0,0)      scale(1);    z-index:4; filter:brightness(1); }
+.cs-card[data-pos="1"] { opacity:1; transform: rotate(-5deg)  translate(-14px,8px)  scale(.97); z-index:3; filter:brightness(.93); }
+.cs-card[data-pos="2"] { opacity:1; transform: rotate(4deg)   translate(10px,14px)  scale(.94); z-index:2; filter:brightness(.86); }
+.cs-card[data-pos="3"] { opacity:1; transform: rotate(-3deg)  translate(-6px,20px)  scale(.91); z-index:1; filter:brightness(.8); }
 .cs-stack:hover .cs-card[data-pos="0"] { transform: rotate(0deg) translate(0,-6px) scale(1.02); box-shadow: 0 30px 70px rgba(5,5,5,.34); }
 .cs-hint {
   position: absolute;
@@ -1565,3 +1571,242 @@ ul  { list-style:none; }
   .footer-col-title { letter-spacing:.16em; }
   .footer-contact-row { gap:.5rem; }
 }
+
+/* =========================================
+   PALETA BOUTIQUE — BLANCO · BEIGE · ROSA
+   (sustituye los fondos oscuros sin tocar la estructura)
+   ========================================= */
+
+/* Header y navegación (fondo claro para que el logo se funda) */
+.header { background: rgba(255,250,248,.9); backdrop-filter: blur(8px); }
+.header.scrolled {
+  background: rgba(255,250,248,.94);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 24px rgba(177,74,114,.15);
+}
+.logo { color: var(--negro); }
+.nav a { color: rgba(75,58,62,.72); }
+.nav a:hover,
+.nav a.active { color: var(--negro); }
+.nav a::after { background: var(--burdeos); }
+.hamburger span { background: var(--negro); }
+.btn-wa-nav:hover { background: var(--negro); color: var(--blanco); }
+.logo-img,
+.footer-logo-img { filter: none; mix-blend-mode: multiply; }
+
+/* Botones */
+.btn-primary:hover { background: var(--negro); color: var(--blanco); }
+.btn-outline { color: var(--negro); border-color: rgba(75,58,62,.35); }
+.btn-outline:hover { background: var(--rosa-suave); color: var(--negro); border-color: var(--rosa); }
+.btn-dark { background: var(--rosa-suave); color: var(--negro); border: 1px solid var(--rosa); }
+.btn-dark:hover { background: var(--burdeos); color: var(--blanco); border-color: var(--burdeos); }
+.btn-gold { color: var(--blanco); }
+.btn-gold:hover { background: var(--burdeos); }
+
+/* Títulos */
+.section-title em,
+.cg-title em,
+.page-title em,
+.hero-title em { color: var(--burdeos); }
+.section-title.light { color: var(--negro); }
+.section-sub.light { color: var(--gris); }
+
+/* Hero */
+.hero { background: var(--crema); }
+.hero-overlay {
+  background:
+    linear-gradient(to right, rgba(251,245,241,.96) 0%, rgba(251,245,241,.82) 42%, rgba(251,245,241,.2) 100%),
+    linear-gradient(to top, rgba(248,232,230,.6) 0%, transparent 50%);
+}
+.hero-lines { display: none; }
+.hero-title { color: var(--negro); }
+.hero-sub { color: var(--gris); font-weight: 400; }
+.hero-stats { border-top-color: rgba(177,74,114,.25); }
+.hero-stat-num { color: var(--burdeos); }
+.hero-stat-label { color: var(--gris); }
+.hero-card {
+  background: rgba(255,255,255,.72);
+  border-color: rgba(231,184,189,.55);
+  backdrop-filter: blur(6px);
+}
+.hero-card:hover { background: rgba(255,255,255,.9); border-color: var(--rosa); }
+.hero-card-title { color: var(--negro); }
+.hero-card-text { color: var(--gris); }
+
+/* Galería */
+.galeria { background: linear-gradient(180deg, var(--rosa-suave) 0%, var(--rosa-polvo) 100%); }
+.cg-bg-deco {
+  background:
+    radial-gradient(ellipse at 50% 60%, rgba(255,255,255,.7) 0%, transparent 62%),
+    radial-gradient(ellipse at 82% 18%, rgba(194,160,122,.12) 0%, transparent 50%);
+}
+.cg-progress-bar { background: linear-gradient(to right, var(--rosa), var(--burdeos)); }
+.cg-title { color: var(--negro); }
+.cg-item { box-shadow: 0 30px 70px rgba(150,90,100,.28); border-color: rgba(255,255,255,.8); }
+.cg-item-caption { background: linear-gradient(to top, rgba(75,50,56,.82) 0%, rgba(75,50,56,.35) 55%, transparent 100%); }
+.cg-dot { background: rgba(75,58,62,.2); }
+.cg-dot.active { background: var(--burdeos); }
+.cg-hint { color: var(--gris); }
+.galeria-after { background: var(--rosa-polvo); border-top-color: rgba(177,74,114,.15); color: var(--negro); }
+
+/* Tarjetas de colecciones */
+.col-card-overlay { background: linear-gradient(to top, rgba(75,50,56,.78) 0%, rgba(75,50,56,.15) 55%, transparent 100%); }
+.col-tag { color: #F6D5D8; }
+.col-cta { color: #F6D5D8; }
+
+/* Sobre Sonia */
+.sonia-carousel-card { box-shadow: 0 24px 64px rgba(150,90,100,.28); }
+.sonia-badge-num { color: var(--blanco); }
+.sonia-badge-text { color: rgba(255,255,255,.9); }
+
+/* Flamenca / Romería */
+.flamenca-section { background: linear-gradient(135deg, var(--rosa-polvo) 0%, var(--rosa-suave) 100%); }
+.flamenca-section::before {
+  background:
+    radial-gradient(ellipse at 65% 50%, rgba(255,255,255,.55) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 80%, rgba(194,160,122,.12) 0%, transparent 50%);
+}
+.flamenca-section::after { background-image: radial-gradient(circle, rgba(177,74,114,.14) 1.5px, transparent 1.5px); }
+.flamenca-circle { border-color: rgba(177,74,114,.35); box-shadow: 0 30px 80px rgba(150,90,100,.2); }
+.flamenca-content { color: var(--negro); }
+.flamenca-feat { background: rgba(255,255,255,.65); border-color: rgba(231,184,189,.5); }
+.flamenca-feat:hover { background: var(--blanco); border-color: var(--rosa); }
+.flamenca-feat-title { color: var(--negro); }
+.flamenca-feat-text { color: var(--gris); }
+
+/* Visítanos */
+.visita { background: var(--crema); }
+.visita-card { background: var(--blanco); border-color: rgba(231,184,189,.5); }
+.visita-card:hover { border-color: var(--burdeos); }
+.visita-card-label { color: var(--dorado); }
+.visita-card-val { color: var(--negro); }
+
+/* Footer */
+.footer { background: var(--rosa-polvo); border-top-color: rgba(177,74,114,.25); }
+.footer-top { border-bottom-color: rgba(177,74,114,.2); }
+.footer-logo { color: var(--negro); }
+.footer-desc,
+.footer-contact-text { color: var(--gris); }
+.footer-social { border-color: rgba(177,74,114,.35); color: var(--burdeos); }
+.footer-social:hover { border-color: var(--burdeos); background: var(--burdeos); color: var(--blanco); }
+.footer-col-title { color: var(--burdeos); }
+.footer-links a { color: var(--gris); }
+.footer-links a:hover { color: var(--burdeos); }
+.footer-contact-icon { color: var(--burdeos); }
+.footer-copy,
+.footer-legal a { color: rgba(75,58,62,.55); }
+.footer-legal a:hover { color: var(--burdeos); }
+
+/* Páginas interiores */
+.page-hero { background: linear-gradient(135deg, var(--rosa-polvo) 0%, var(--rosa-suave) 55%, var(--crema) 100%); }
+.page-hero::before { background: radial-gradient(ellipse at 65% 50%, rgba(255,255,255,.5) 0%, transparent 60%); }
+.page-hero-cover::before { background: linear-gradient(90deg, rgba(251,245,241,.94) 0%, rgba(251,245,241,.75) 55%, rgba(251,245,241,.35) 100%); }
+.breadcrumb { color: var(--gris); }
+.breadcrumb a:hover { color: var(--burdeos); }
+.breadcrumb-sep { color: var(--rosa); }
+.page-title { color: var(--negro); }
+.page-subtitle { color: var(--gris); }
+.cs-card { box-shadow: 0 25px 60px rgba(150,90,100,.25); }
+.cs-hint { background: rgba(255,255,255,.85); color: var(--negro); }
+.tag-dark { background: var(--rosa-suave); color: var(--burdeos); }
+.tag-gold { color: var(--blanco); }
+.cta-banner { background: var(--rosa-polvo); }
+.cta-banner-title { color: var(--negro); }
+.cta-banner-text { color: var(--gris); }
+.sonia-full { background: linear-gradient(135deg, var(--rosa-polvo) 0%, var(--rosa-suave) 100%); }
+.valor { background: rgba(255,255,255,.65); border-color: rgba(231,184,189,.5); }
+.valor:hover { background: var(--blanco); border-color: var(--rosa); }
+.valor-title { color: var(--negro); }
+.valor-text { color: var(--gris); }
+
+/* Flotantes */
+.scroll-top:hover { background: var(--negro); color: var(--blanco); }
+
+@media (max-width:768px) {
+  .hero-overlay {
+    background:
+      linear-gradient(to right, rgba(251,245,241,.9) 0%, rgba(251,245,241,.72) 55%, rgba(251,245,241,.4) 100%),
+      linear-gradient(to top, rgba(248,232,230,.55) 0%, transparent 55%);
+  }
+  .nav { background: #FFF8F6; box-shadow: -10px 0 40px rgba(150,90,100,.15); }
+}
+
+/* Portada: foto vertical como panel a la derecha (sin cortar la cabeza) */
+.hero-bg { background: var(--crema); }
+.hero .img-abs {
+  left: auto; right: 0;
+  width: 56%;
+  object-position: center 28%;
+}
+.hero-overlay {
+  background:
+    linear-gradient(to right, var(--crema) 0%, var(--crema) 44%, rgba(251,245,241,.6) 49%, rgba(251,245,241,0) 58%),
+    linear-gradient(to top, rgba(248,232,230,.5) 0%, transparent 35%);
+}
+@media (max-width:768px) {
+  .hero .img-abs { width: 100%; object-position: center 20%; }
+  .hero-overlay {
+    background:
+      linear-gradient(to right, rgba(251,245,241,.9) 0%, rgba(251,245,241,.7) 55%, rgba(251,245,241,.35) 100%),
+      linear-gradient(to top, rgba(248,232,230,.55) 0%, transparent 55%);
+  }
+}
+
+/* Aviso nueva colección (inicio) */
+.aviso-temporada {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin: -1.5rem 0 2.5rem;
+  padding: 1.1rem 1.5rem;
+  background: rgba(255,255,255,.8);
+  border: 1px solid rgba(177,74,114,.25);
+  border-left: 3px solid var(--burdeos);
+  box-shadow: var(--shadow);
+}
+.aviso-temporada-tag {
+  background: var(--burdeos);
+  color: var(--blanco);
+  font-size: .6rem;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  padding: .35rem .8rem;
+}
+.aviso-temporada-text {
+  flex: 1;
+  min-width: 220px;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--negro);
+}
+.aviso-temporada-text em { color: var(--burdeos); }
+.aviso-temporada-link {
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--burdeos);
+}
+.aviso-temporada-link:hover { color: var(--negro); }
+
+/* Etiqueta sobre tarjeta de colección */
+.col-badge {
+  position: absolute;
+  top: 1rem; left: 1rem;
+  z-index: 2;
+  background: rgba(255,255,255,.9);
+  color: var(--burdeos);
+  font-size: .6rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: .4rem .85rem;
+  backdrop-filter: blur(4px);
+}
+.col-page .aviso-temporada { margin: 0 0 1rem; }
+
+/* Pila de tarjetas en formato vertical (colecciones) */
+.cs-stack { aspect-ratio: 4/5; max-width: 500px; margin: 0 auto; }
+.col-feat-visual .col-badge { top: .25rem; left: 50%; transform: translateX(-50%); z-index: 6; white-space: nowrap; box-shadow: var(--shadow); }
