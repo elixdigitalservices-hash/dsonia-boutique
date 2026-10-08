@@ -2081,3 +2081,65 @@ body { font-weight: 400; }
 }
 .visita-inner { align-items: center; }
 .sonia-quote { border-left-width: 1px; border-left-color: var(--dorado); }
+
+/* ---- Banda fija superior en rosa ciruela suave ---- */
+.header,
+.header.scrolled {
+  background: rgba(226,190,206,.96);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 24px rgba(177,74,114,.16);
+}
+.nav a { color: rgba(75,58,62,.82); }
+.nav a:hover, .nav a.active { color: #3A2A2F; }
+.btn-wa-nav { color: #8E3459; border-color: rgba(142,52,89,.6); }
+.btn-wa-nav:hover { background: var(--burdeos); color: var(--blanco); border-color: var(--burdeos); }
+@media (max-width:768px) {
+  .nav { background: #F3E2EA; }
+}
+
+/* ---- Cabeceras con foto en móvil: menos velo y textos con apoyo ---- */
+@media (max-width:768px) {
+  .page-hero-cover::before,
+  .page-hero-veil {
+    background: linear-gradient(to top, rgba(251,245,241,.78) 0%, rgba(251,245,241,.3) 45%, rgba(251,245,241,0) 75%);
+  }
+  .breadcrumb {
+    display: inline-flex;
+    background: rgba(255,250,248,.82);
+    backdrop-filter: blur(6px);
+    padding: .45rem .9rem;
+    border-radius: 30px;
+    color: var(--negro);
+  }
+  .page-title { text-shadow: 0 0 22px rgba(251,245,241,.95), 0 0 6px rgba(251,245,241,.8); }
+  .page-subtitle {
+    display: inline-block;
+    background: rgba(255,250,248,.78);
+    backdrop-filter: blur(6px);
+    padding: .35rem .75rem;
+    border-radius: 4px;
+    color: var(--negro);
+  }
+}
+
+/* Logo transparente (sin recuadro sobre fondos de color) */
+.logo-img, .footer-logo-img { filter: none; mix-blend-mode: normal; }
+.logo-img { height: 34px; }
+.footer-brand .footer-logo-img { height: 58px; margin-bottom: 1.6rem; }
+
+/* Cabecera con foto en móvil: panel tenue en lugar de velo */
+@media (max-width:768px) {
+  .page-hero { min-height: 62vh; }
+  .page-hero-cover::before,
+  .page-hero-veil { background: linear-gradient(to top, rgba(251,245,241,.35) 0%, rgba(251,245,241,0) 45%); }
+  .page-hero-inner {
+    background: rgba(255,250,248,.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 1.1rem 1.25rem 1.25rem;
+    border-radius: 6px;
+  }
+  .breadcrumb { display: flex; background: none; backdrop-filter: none; padding: 0; border-radius: 0; margin-bottom: .6rem; }
+  .page-title { text-shadow: none; font-size: 2.5rem; }
+  .page-subtitle { display: block; background: none; backdrop-filter: none; padding: 0; margin-top: .5rem; }
+}
