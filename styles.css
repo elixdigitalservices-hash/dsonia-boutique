@@ -2,7 +2,7 @@
    D'SONIA BOUTIQUE — STYLESHEET
    ========================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap');
 
 :root {
   /* Paleta boutique: blanco · beige · rosa empolvado */
@@ -13,15 +13,15 @@
   --burdeos:  #B14A72;   /* rosa ciruela (acento / botones) */
   --rojo:     #E7B8BD;
   --terracota:#D4A59A;
-  --dorado:   #C2A07A;
+  --dorado:   #A88C78;   /* taupe dorado (acentos finos) */
   --gris:     #7D6E6B;
   --verde:    #A8B5A2;
   --rosa:       #E7B8BD;
   --rosa-suave: #F8E8E6;
   --rosa-polvo: #F3E1DD;
 
-  --serif:    'Playfair Display', Georgia, serif;
-  --sans:     'Montserrat', sans-serif;
+  --serif:    'Cormorant Garamond', Georgia, serif;
+  --sans:     'Jost', 'Helvetica Neue', sans-serif;
 
   --ease:     cubic-bezier(0.4, 0, 0.2, 1);
   --t:        all 0.35s var(--ease);
@@ -1832,3 +1832,252 @@ body { overflow-x: clip; }
 @media (max-width:768px) {
   .hero-stat-label { display: block; line-height: 1.45; margin-top: .35rem; }
 }
+
+/* =========================================
+   REDISEÑO BOUTIQUE — elegante, limpio y aireado
+   ========================================= */
+:root { --linea: rgba(168,140,120,.28); }
+
+/* ---- Tipografía ---- */
+body { font-weight: 400; }
+.hero-title, .section-title, .cg-title, .col-title, .page-title, .cta-banner-title,
+.mapa-title, .flamenca-feat-title, .footer-logo { font-weight: 500; letter-spacing: -.005em; }
+.hero-title { font-size: clamp(3rem, 6vw, 5.8rem); line-height: 1; }
+.section-title { font-size: clamp(2.3rem, 4vw, 3.5rem); line-height: 1.08; }
+.page-title { font-size: clamp(2.6rem, 5.5vw, 4.6rem); line-height: 1.02; }
+.cg-title { font-size: clamp(2rem, 3.5vw, 3rem); }
+.col-title { font-size: 1.75rem; }
+.cta-banner-title { font-size: clamp(2.3rem, 4vw, 3.4rem); line-height: 1.1; }
+.hero-title em, .section-title em, .page-title em, .cg-title em { font-weight: 500; }
+.hero-stat-num { font-size: 2.5rem; font-weight: 500; }
+.section-sub, .hero-sub, .sonia-text, .col-feat-text { font-weight: 300; font-size: 1rem; line-height: 1.9; }
+.sonia-quote { font-size: 1.6rem; font-weight: 500; }
+.section-tag, .hero-kicker, .col-tag, .hero-stat-label, .footer-col-title, .info-label {
+  font-weight: 400; letter-spacing: .28em; font-size: .64rem;
+}
+.nav a { font-weight: 400; letter-spacing: .2em; font-size: .7rem; }
+
+/* ---- Botones finos ---- */
+.btn {
+  padding: 1rem 2.4rem;
+  font-size: .68rem; font-weight: 500; letter-spacing: .22em;
+  border: 1px solid transparent;
+}
+.btn-primary { background: var(--burdeos); border-color: var(--burdeos); color: var(--blanco); }
+.btn-primary:hover { background: var(--negro); border-color: var(--negro); color: var(--blanco); }
+.btn-outline, .btn-dark, .btn-gold, .btn-wa {
+  background: transparent; color: var(--negro); border: 1px solid rgba(75,58,62,.38);
+}
+.btn-outline:hover, .btn-dark:hover, .btn-gold:hover, .btn-wa:hover {
+  background: var(--negro); color: var(--blanco); border-color: var(--negro);
+}
+.btn-wa-nav {
+  background: transparent; color: var(--burdeos);
+  border: 1px solid rgba(177,74,114,.55);
+  font-weight: 500; letter-spacing: .2em; font-size: .66rem;
+}
+.btn-wa-nav:hover { background: var(--burdeos); color: var(--blanco); border-color: var(--burdeos); }
+
+/* ---- Iconos de línea ---- */
+.ico {
+  width: 1.1em; height: 1.1em; flex-shrink: 0;
+  fill: none; stroke: currentColor; stroke-width: 1.3;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* ---- Más aire entre secciones ---- */
+@media (min-width:769px) {
+  .section { padding: 8rem 2rem; }
+  .flamenca-section { padding: 8.5rem 2rem; }
+}
+
+/* ---- Aviso de temporada más ligero ---- */
+.aviso-temporada {
+  background: transparent; box-shadow: none;
+  border: 0; border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea);
+  padding: 1.25rem 0;
+}
+.aviso-temporada-text { font-size: 1.35rem; font-weight: 400; }
+
+/* ---- Etiquetas como texto ---- */
+.col-feat-tags { gap: 0; align-items: center; }
+.col-feat-tags .tag {
+  background: none; padding: 0;
+  font-size: .64rem; font-weight: 400; letter-spacing: .2em; color: var(--gris);
+}
+.col-feat-tags .tag + .tag::before { content: '·'; margin: 0 .75rem; color: var(--dorado); }
+.col-feat-tags .tag-dark { color: var(--burdeos); }
+.col-feat-tags .tag-gold { color: var(--dorado); }
+
+/* ---- Visítanos: lista compacta ---- */
+.visita { background: var(--blanco); }
+.info-list { margin-top: 2.5rem; border-top: 1px solid var(--linea); }
+.info-list li {
+  display: flex; gap: 1.1rem; align-items: flex-start;
+  padding: 1.15rem 0; border-bottom: 1px solid var(--linea);
+  font-size: .95rem; font-weight: 300; color: var(--negro); line-height: 1.6;
+}
+.info-list .ico { width: 20px; height: 20px; color: var(--burdeos); margin-top: .15rem; }
+.info-label { display: block; text-transform: uppercase; color: var(--dorado); margin-bottom: .2rem; }
+.info-list a:hover { color: var(--burdeos); }
+.visita-mapa iframe, .mapa-wrap iframe { filter: grayscale(.55) sepia(.12) contrast(.96); }
+.visita-mapa, .visita-mapa iframe { min-height: 460px; }
+
+/* ---- Contacto: banda horizontal ---- */
+.contacto-page { padding: 6rem 2rem 5rem; }
+.ctc-band {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea);
+  margin-bottom: 5rem;
+}
+.ctc-item {
+  padding: 2.75rem 1.5rem; text-align: center;
+  display: flex; flex-direction: column; align-items: center;
+  border-right: 1px solid var(--linea);
+}
+.ctc-item:last-child { border-right: 0; }
+.ctc-item > .ico { width: 24px; height: 24px; color: var(--burdeos); margin-bottom: 1.1rem; }
+.ctc-item p {
+  font-family: var(--serif); font-size: 1.25rem; font-weight: 500;
+  color: var(--negro); line-height: 1.4; margin: .35rem 0 1.25rem; flex: 1;
+}
+.link-arrow {
+  display: inline-flex; align-items: center; gap: .45rem;
+  font-size: .64rem; font-weight: 500; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--burdeos); padding-bottom: 3px; border-bottom: 1px solid transparent;
+  transition: var(--t);
+}
+.link-arrow .ico { width: 12px; height: 12px; }
+.link-arrow:hover { border-bottom-color: var(--burdeos); }
+.mapa-wrap { background: none; box-shadow: none; padding: 0; }
+.mapa-wrap iframe { height: 460px; }
+.mapa-title { font-size: 2.2rem; }
+
+/* ---- Sonia: cita protagonista ---- */
+.sonia-cita {
+  font-family: var(--serif); font-style: italic; font-weight: 500;
+  font-size: clamp(1.7rem, 2.6vw, 2.2rem); line-height: 1.3;
+  color: var(--burdeos); margin: 2.25rem 0 2.5rem;
+}
+.sonia-cita::before {
+  content: ''; display: block; width: 48px; height: 1px;
+  background: var(--dorado); margin-bottom: 1.4rem;
+}
+
+/* ---- Velo blanco más ligero en cabeceras con foto ---- */
+.page-hero { min-height: 46vh; }
+.page-hero-cover::before,
+.page-hero-veil {
+  background: linear-gradient(90deg, rgba(251,245,241,.9) 0%, rgba(251,245,241,.6) 38%, rgba(251,245,241,0) 72%);
+}
+.page-hero-veil { position: absolute; inset: 0; z-index: 1; }
+
+/* ---- Botón flotante WhatsApp discreto ---- */
+.wa-float {
+  position: fixed; right: 1.75rem; bottom: 6.4rem; z-index: 900;
+  width: 52px; height: 52px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--blanco); color: var(--burdeos);
+  border: 1px solid rgba(177,74,114,.3);
+  box-shadow: 0 10px 30px rgba(140,90,100,.18);
+  transition: var(--t);
+}
+.wa-float .ico { width: 22px; height: 22px; }
+.wa-float:hover { background: var(--burdeos); color: var(--blanco); border-color: var(--burdeos); }
+.wa-float-text {
+  position: absolute; right: 64px; white-space: nowrap;
+  background: var(--blanco); color: var(--negro);
+  font-size: .62rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;
+  padding: .6rem 1rem; box-shadow: 0 8px 24px rgba(140,90,100,.15);
+  opacity: 0; transform: translateX(8px); pointer-events: none; transition: var(--t);
+}
+.wa-float:hover .wa-float-text { opacity: 1; transform: none; }
+.scroll-top {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--blanco); color: var(--negro);
+  border: 1px solid rgba(75,58,62,.18);
+  box-shadow: 0 10px 30px rgba(140,90,100,.12);
+}
+.scroll-top .ico { width: 18px; height: 18px; }
+.scroll-top:hover { background: var(--negro); color: var(--blanco); }
+
+/* ---- Pie de página ---- */
+.footer { background: var(--crema); border-top: 1px solid var(--linea); padding: 5.5rem 2rem 2rem; }
+.footer-brand {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding-bottom: 3.5rem; margin-bottom: 3.5rem; border-bottom: 1px solid var(--linea);
+}
+.footer-brand .footer-logo-img { height: 84px; margin: 0 0 1.4rem; }
+.footer-claim {
+  font-family: var(--serif); font-style: italic; font-weight: 500;
+  font-size: 1.6rem; line-height: 1.35; color: var(--negro); margin-bottom: 1.75rem;
+}
+.footer-socials { justify-content: center; gap: .75rem; }
+.footer-social {
+  width: 42px; height: 42px; border-radius: 50%;
+  border: 1px solid rgba(75,58,62,.2); color: var(--negro); background: transparent;
+}
+.footer-social .ico { width: 17px; height: 17px; }
+.footer-social:hover { background: var(--burdeos); border-color: var(--burdeos); color: var(--blanco); }
+.footer-top {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 980px; margin: 0 auto 3.5rem;
+  padding-bottom: 0; border-bottom: 0; gap: 3rem; text-align: center;
+}
+.footer-col-title { color: var(--dorado); margin-bottom: 1.4rem; }
+.footer-links { align-items: center; gap: .75rem; }
+.footer-links a { font-size: .9rem; font-weight: 300; color: var(--gris); }
+.footer-links a:hover { color: var(--burdeos); }
+.footer-contact { display: flex; flex-direction: column; gap: .95rem; align-items: center; }
+.footer-contact li {
+  display: flex; gap: .6rem; align-items: flex-start;
+  font-size: .9rem; font-weight: 300; color: var(--gris); line-height: 1.6; text-align: left;
+}
+.footer-contact .ico { width: 16px; height: 16px; color: var(--burdeos); margin-top: .25rem; }
+.footer-contact a:hover { color: var(--burdeos); }
+.footer-bottom { border-top: 1px solid var(--linea); padding-top: 1.75rem; }
+.footer-copy, .footer-legal a { font-size: .72rem; letter-spacing: .06em; color: rgba(75,58,62,.55); }
+
+/* ---- Responsive del rediseño ---- */
+@media (max-width:1100px) and (min-width:769px) {
+  .footer-top { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width:900px) {
+  .ctc-band { grid-template-columns: 1fr 1fr; }
+  .ctc-item:nth-child(2) { border-right: 0; }
+  .ctc-item:nth-child(-n+2) { border-bottom: 1px solid var(--linea); }
+}
+@media (max-width:768px) {
+  .footer { padding: 4rem 1.25rem 1.75rem; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem 1rem; }
+  .footer-top > div:nth-child(n) { grid-column: auto; grid-row: auto; }
+  .footer-top > div:nth-child(3) { grid-column: 1 / -1; }
+  .footer-claim { font-size: 1.35rem; }
+  .page-hero-cover::before,
+  .page-hero-veil {
+    background: linear-gradient(to top, rgba(251,245,241,.94) 0%, rgba(251,245,241,.6) 50%, rgba(251,245,241,.08) 100%);
+  }
+  .visita-mapa, .visita-mapa iframe { min-height: 340px; }
+  .mapa-wrap iframe { height: 340px; }
+  .wa-float { right: 1.1rem; bottom: 5.4rem; width: 48px; height: 48px; }
+  .scroll-top { right: 1.1rem; bottom: 1.25rem; width: 48px; height: 48px; }
+}
+@media (max-width:560px) {
+  .ctc-band { grid-template-columns: 1fr; }
+  .ctc-item { border-right: 0; border-bottom: 1px solid var(--linea); padding: 2.25rem 1rem; }
+  .ctc-item:last-child { border-bottom: 0; }
+}
+/* ajustes tras revisión */
+.page-hero-cover::before,
+.page-hero-veil {
+  background: linear-gradient(90deg, rgba(251,245,241,.95) 0%, rgba(251,245,241,.86) 40%, rgba(251,245,241,.35) 62%, rgba(251,245,241,0) 80%);
+}
+.footer-brand .footer-logo-img { height: 120px; }
+@media (max-width:768px) {
+  .page-hero-cover::before,
+  .page-hero-veil {
+    background: linear-gradient(to top, rgba(251,245,241,.96) 0%, rgba(251,245,241,.7) 55%, rgba(251,245,241,.12) 100%);
+  }
+}
+.visita-inner { align-items: center; }
+.sonia-quote { border-left-width: 1px; border-left-color: var(--dorado); }
