@@ -1810,3 +1810,25 @@ ul  { list-style:none; }
 /* Pila de tarjetas en formato vertical (colecciones) */
 .cs-stack { aspect-ratio: 4/5; max-width: 500px; margin: 0 auto; }
 .col-feat-visual .col-badge { top: .25rem; left: 50%; transform: translateX(-50%); z-index: 6; white-space: nowrap; box-shadow: var(--shadow); }
+
+/* =========================================
+   RESPONSIVE — AJUSTES FINALES
+   ========================================= */
+/* Evita el scroll lateral por el menú móvil fuera de pantalla (clip no rompe el sticky) */
+body { overflow-x: clip; }
+
+/* Portada en móvil/tablet: texto arriba y foto completa debajo, sin tapar a la modelo */
+@media (max-width:900px) {
+  .hero { flex-direction: column; align-items: stretch; min-height: 0; }
+  .hero-content { order: 1; width: 100%; padding: 7.5rem 1.5rem 2.5rem; }
+  .hero-left { padding-right: 0; }
+  .hero-btns { margin-bottom: 2.25rem; }
+  .hero-bg { position: relative; order: 2; inset: auto; height: min(140vw, 900px); }
+  .hero .img-abs { left: 0; right: 0; width: 100%; object-position: center 22%; }
+  .hero-overlay { background: linear-gradient(to bottom, var(--crema) 0%, rgba(251,245,241,0) 16%); }
+}
+
+.hamburger { background: none; border: 0; }
+@media (max-width:768px) {
+  .hero-stat-label { display: block; line-height: 1.45; margin-top: .35rem; }
+}
