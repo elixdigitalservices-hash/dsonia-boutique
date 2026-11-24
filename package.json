@@ -1,0 +1,9 @@
+{
+  "name": "dsonia-boutique",
+  "private": true,
+  "type": "module",
+  "description": "Web de D'Sonia Boutique: HTML estático + dos funciones (api/) para las novedades que publica Sonia desde /panel.html",
+  "dependencies": {
+    "@vercel/blob": "^2.8.2"
+  }
+}

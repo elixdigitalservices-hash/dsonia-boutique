@@ -405,7 +405,7 @@ ul  { list-style:none; }
 .colecciones-preview {
   background:
     linear-gradient(rgba(247,241,231,.68), rgba(247,241,231,.68)),
-    url('FOTOS/fondo_botanico_dsonia_oro_rosa_sutil.png') center/620px repeat,
+    url('FOTOS/fondo_botanico_dsonia_oro_rosa_sutil.webp') center/620px repeat,
     var(--crema);
 }
 
@@ -1089,7 +1089,7 @@ ul  { list-style:none; }
 .col-page {
   background:
     linear-gradient(rgba(247,241,231,.68), rgba(247,241,231,.68)),
-    url('FOTOS/fondo_botanico_dsonia_oro_rosa_sutil.png') center/620px repeat,
+    url('FOTOS/fondo_botanico_dsonia_oro_rosa_sutil.webp') center/620px repeat,
     var(--crema);
   padding:5rem 2rem;
 }
@@ -1217,7 +1217,7 @@ ul  { list-style:none; }
 /* =========================================
    CONTACTO PAGE
    ========================================= */
-.contacto-page { background: linear-gradient(rgba(247,241,231,.68), rgba(247,241,231,.68)), url('FOTOS/fondo_botanico_dsonia_oro_rosa_sutil.png') center/620px repeat, var(--crema); padding:5rem 2rem; }
+.contacto-page { background: linear-gradient(rgba(247,241,231,.68), rgba(247,241,231,.68)), url('FOTOS/fondo_botanico_dsonia_oro_rosa_sutil.webp') center/620px repeat, var(--crema); padding:5rem 2rem; }
 .contacto-page-inner { max-width:1280px; margin:0 auto; }
 
 .contacto-cards {

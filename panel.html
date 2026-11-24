@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Panel de novedades · D'Sonia Boutique</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#f3e1dd">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --negro: #4B3A3E; --burdeos: #B14A72; --gris: #7D6E6B; --crema: #FBF5F1; --rosa: #E7B8BD; --polvo: #F3E1DD; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Jost', system-ui, sans-serif; color: var(--negro); background: linear-gradient(170deg, var(--crema), var(--polvo)); min-height: 100vh; -webkit-font-smoothing: antialiased; }
+    .caja { max-width: 640px; margin: 0 auto; padding: 2.2rem 1.25rem 4rem; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; }
+    header img { height: 40px; }
+    header a { font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--burdeos); text-decoration: none; font-weight: 600; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 2.4rem; line-height: 1.05; }
+    h1 em { color: var(--burdeos); }
+    .sub { color: var(--gris); margin: .6rem 0 2rem; line-height: 1.6; }
+    .tarjeta { background: #fff; border-radius: 16px; padding: 1.4rem; box-shadow: 0 20px 50px -30px rgba(110, 50, 68, .45); margin-bottom: 1.4rem; }
+    label { display: block; font-size: .68rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--gris); margin-bottom: .5rem; }
+    input[type=password], input[type=text] { width: 100%; font: 400 1.05rem 'Jost', sans-serif; padding: .9rem 1rem; border-radius: 10px; border: 1px solid rgba(75, 58, 62, .2); background: var(--crema); color: var(--negro); }
+    input:focus { outline: 2px solid var(--rosa); border-color: var(--burdeos); }
+    .boton { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; width: 100%; margin-top: 1rem; padding: 1rem 1.2rem; border: 0; border-radius: 10px; background: var(--burdeos); color: #fff; font: 600 .78rem 'Jost', sans-serif; letter-spacing: .16em; text-transform: uppercase; cursor: pointer; }
+    .boton:disabled { opacity: .55; cursor: wait; }
+    .elegir { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem; min-height: 190px; border: 2px dashed rgba(177, 74, 114, .35); border-radius: 12px; background: var(--crema); cursor: pointer; text-align: center; color: var(--gris); overflow: hidden; position: relative; }
+    .elegir b { color: var(--burdeos); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; font-size: .75rem; }
+    .elegir img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .elegir input { display: none; }
+    .aviso { margin-top: .9rem; font-size: .9rem; color: var(--burdeos); min-height: 1.2em; }
+    .aviso.ok { color: #2f8a55; }
+    .lista { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .9rem; }
+    .item { background: var(--crema); border-radius: 10px; overflow: hidden; }
+    .item img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
+    .item p { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; padding: .5rem .7rem 0; line-height: 1.15; }
+    .item small { display: block; padding: 0 .7rem; color: var(--gris); font-size: .72rem; }
+    .item button { margin: .5rem .7rem .7rem; padding: .45rem .7rem; border: 1px solid rgba(177, 74, 114, .4); background: #fff; color: var(--burdeos); border-radius: 8px; font: 600 .62rem 'Jost', sans-serif; letter-spacing: .12em; text-transform: uppercase; cursor: pointer; }
+    .vacio { color: var(--gris); font-size: .95rem; }
+    h2 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 1.6rem; margin-bottom: 1rem; }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+<div class="caja">
+  <header>
+    <img src="FOTOS/logo-dsonia.png" alt="D'Sonia Boutique">
+    <a href="index.html#novedades" target="_blank">Ver la web →</a>
+  </header>
+
+  <h1>Novedades de la <em>semana</em></h1>
+  <p class="sub">Sube una foto de lo que acaba de llegar y aparece en la portada de la web, en «Novedades de la semana». Se ven las 12 últimas.</p>
+
+  <!-- entrar -->
+  <form class="tarjeta" id="entrar">
+    <label for="clave">Clave del panel</label>
+    <input type="password" id="clave" autocomplete="current-password" required>
+    <button class="boton" type="submit">Entrar</button>
+    <p class="aviso" id="avisoEntrar"></p>
+  </form>
+
+  <!-- subir -->
+  <div id="zona" hidden>
+    <form class="tarjeta" id="subir">
+      <label>Foto</label>
+      <label class="elegir" id="elegir">
+        <input type="file" id="foto" accept="image/*">
+        <b>Elegir foto</b>
+        <span>o hacerla con la cámara</span>
+      </label>
+      <label for="titulo" style="margin-top:1.1rem">Qué es (opcional)</label>
+      <input type="text" id="titulo" maxlength="60" placeholder="Ej.: Vestido de invitada, nueva colección">
+      <button class="boton" type="submit" id="publicar" disabled>Publicar en la web</button>
+      <p class="aviso" id="avisoSubir"></p>
+    </form>
+
+    <div class="tarjeta">
+      <h2>Ahora en la web</h2>
+      <div class="lista" id="lista"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var clave = '';
+  try { clave = sessionStorage.getItem('dsonia-panel') || ''; } catch (e) {}
+  var $ = function (id) { return document.getElementById(id); };
+  var foto = null;
+
+  function api(cuerpo) {
+    cuerpo.clave = clave;
+    return fetch('/api/panel', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(cuerpo) })
+      .then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.error || 'Algo ha fallado.'); return j; }); });
+  }
+  function pintar(items) {
+    $('lista').innerHTML = items.length ? items.map(function (it) {
+      var f = new Date(it.fecha).toLocaleDateString('es-ES', { day: 'numeric', month: 'short' });
+      var t = String(it.titulo).replace(/[<>&"]/g, function (c) { return { '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;' }[c]; });
+      return '<div class="item"><img src="' + it.url + '" alt=""><p>' + t + '</p><small>' + f + '</small><button data-id="' + it.id + '">Quitar</button></div>';
+    }).join('') : '<p class="vacio">Todavía no hay novedades. La sección no sale en la web hasta que subas la primera.</p>';
+  }
+  function entrar() {
+    return api({ accion: 'entrar' }).then(function (j) {
+      try { sessionStorage.setItem('dsonia-panel', clave); } catch (e) {}
+      $('entrar').hidden = true; $('zona').hidden = false; pintar(j.items);
+    });
+  }
+  $('entrar').addEventListener('submit', function (e) {
+    e.preventDefault(); clave = $('clave').value.trim(); $('avisoEntrar').textContent = 'Comprobando…';
+    entrar().catch(function (err) { $('avisoEntrar').textContent = err.message; });
+  });
+  if (clave) entrar().catch(function () { clave = ''; });
+
+  // la foto se reduce en el móvil (1400 px, WebP o JPEG) antes de subirla
+  function preparar(file) {
+    return createImageBitmap(file, { imageOrientation: 'from-image' }).then(function (bmp) {
+      var s = Math.min(1, 1400 / Math.max(bmp.width, bmp.height));
+      var c = document.createElement('canvas'); c.width = Math.round(bmp.width * s); c.height = Math.round(bmp.height * s);
+      c.getContext('2d').drawImage(bmp, 0, 0, c.width, c.height);
+      var webp = c.toDataURL('image/webp', 0.82);
+      return webp.indexOf('data:image/webp') === 0 ? webp : c.toDataURL('image/jpeg', 0.85);
+    });
+  }
+  $('foto').addEventListener('change', function () {
+    var f = this.files && this.files[0]; if (!f) return;
+    $('avisoSubir').className = 'aviso'; $('avisoSubir').textContent = 'Preparando la foto…';
+    preparar(f).then(function (url) {
+      foto = url;
+      var vieja = $('elegir').querySelector('img'); if (vieja) vieja.remove();
+      var img = document.createElement('img'); img.src = url; $('elegir').appendChild(img);
+      $('publicar').disabled = false; $('avisoSubir').textContent = '';
+    }).catch(function () { $('avisoSubir').textContent = 'No se ha podido leer esa foto. Prueba con otra.'; });
+  });
+  $('subir').addEventListener('submit', function (e) {
+    e.preventDefault(); if (!foto) return;
+    $('publicar').disabled = true; $('avisoSubir').className = 'aviso'; $('avisoSubir').textContent = 'Subiendo…';
+    api({ accion: 'subir', foto: foto, titulo: $('titulo').value }).then(function (j) {
+      pintar(j.items); foto = null; $('titulo').value = ''; $('foto').value = '';
+      var img = $('elegir').querySelector('img'); if (img) img.remove();
+      $('avisoSubir').className = 'aviso ok'; $('avisoSubir').textContent = '¡Publicada! Ya sale en la web.';
+    }).catch(function (err) { $('avisoSubir').textContent = err.message; $('publicar').disabled = false; });
+  });
+  $('lista').addEventListener('click', function (e) {
+    var id = e.target.getAttribute && e.target.getAttribute('data-id'); if (!id) return;
+    if (!confirm('¿Quitar esta novedad de la web?')) return;
+    e.target.disabled = true;
+    api({ accion: 'borrar', id: id }).then(function (j) { pintar(j.items); }).catch(function (err) { alert(err.message); e.target.disabled = false; });
+  });
+})();
+</script>
+</body>
+</html>

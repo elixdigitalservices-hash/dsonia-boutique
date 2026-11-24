@@ -6,9 +6,25 @@
   <title>Contacto & Sobre Sonia — D'Sonia Boutique Tomares</title>
   <meta name="description" content="Encuéntranos en C. Navarro Caro, 32, Tomares, Sevilla. Horarios, WhatsApp y todo sobre Sonia, tu estilista de confianza en Tomares.">
   <meta name="keywords" content="contacto boutique Tomares, tienda ropa Tomares dirección, Sonia estilista Tomares, boutique Tomares horario">
+  <link rel="canonical" href="https://dsoniaboutique.es/contacto.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#f3e1dd">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="D'Sonia Boutique">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Contacto & Sobre Sonia — D'Sonia Boutique Tomares">
+  <meta property="og:description" content="Encuéntranos en C. Navarro Caro, 32, Tomares, Sevilla. Horarios, WhatsApp y todo sobre Sonia, tu estilista de confianza en Tomares.">
+  <meta property="og:url" content="https://dsoniaboutique.es/contacto.html">
+  <meta property="og:image" content="https://dsoniaboutique.es/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script>document.documentElement.classList.add('wow-js')</script>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="wow.css">
   <style id="firma-elix-css">.firma-elix{--fe-acento:#c9adf0;position:relative;display:inline-flex;align-items:center;gap:.8rem;padding:.35rem 0;color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
 .firma-elix .fe-texto{font-size:.6875rem;letter-spacing:.16em;text-transform:uppercase;opacity:.55;white-space:nowrap;transition:opacity .4s ease}
 .firma-elix .fe-marca{position:relative;display:block;height:1.375rem;aspect-ratio:780/121;flex:none}
@@ -83,7 +99,7 @@
 
 <!-- PAGE HERO -->
 <section class="page-hero" style="position:relative;overflow:hidden;">
-  <img src="FOTOS/Tienda/49e9b08f-736c-4225-bbee-458e8bc2ddff.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;">
+  <img src="FOTOS/Tienda/49e9b08f-736c-4225-bbee-458e8bc2ddff.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;" loading="lazy" decoding="async">
   <div class="page-hero-veil"></div>
   <div class="page-hero-inner" style="position:relative;z-index:2;">
     <div class="breadcrumb">
@@ -131,12 +147,12 @@
     <div class="mapa-wrap fade-up">
       <h2 class="mapa-title">¿Cómo llegamos?</h2>
       <p class="mapa-sub">Estamos en el centro de Tomares, Sevilla. Fácil acceso y parking cercano.</p>
-      <iframe
-        src="https://maps.google.com/maps?q=Calle+Navarro+Caro+32+Tomares+Sevilla&output=embed"
-        allowfullscreen
-        loading="lazy"
-        title="Ubicación D'Sonia Boutique en Tomares">
-      </iframe>
+      <div class="mapa-diferido" data-src="https://maps.google.com/maps?q=Calle+Navarro+Caro+32+Tomares+Sevilla&output=embed" data-titulo="Ubicación D'Sonia Boutique en Tomares">
+        <svg class="ico mapa-pin" aria-hidden="true"><use href="#i-pin"/></svg>
+        <span class="mapa-dir">C. Navarro Caro, 32 · Tomares</span>
+        <button class="btn btn-dark mapa-ver" type="button">Ver el mapa</button>
+        <span class="mapa-nota">Al pulsar se carga Google Maps</span>
+      </div>
     </div>
 
   </div>
@@ -147,7 +163,7 @@
   <div class="sonia-full-inner">
     <div class="sonia-full-visual fade-left">
       <div class="sonia-full-foto">
-        <img src="FOTOS/sonia/sonia-estilista.png" alt="Sonia, estilista de D'Sonia Boutique Tomares">
+        <img src="FOTOS/sonia/sonia-estilista.webp" alt="Sonia, estilista de D'Sonia Boutique Tomares" loading="lazy" decoding="async">
       </div>
     </div>
     <div class="fade-right">
@@ -190,7 +206,7 @@
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <img src="FOTOS/logo-dsonia.png" alt="D'Sonia Boutique" class="footer-logo-img">
+      <div class="footer-firma" data-firma aria-label="D'Sonia Boutique"><img src="FOTOS/logo-dsonia.png" alt="D'Sonia Boutique" class="footer-logo-img"></div>
       <p class="footer-claim">Tu estilista de confianza en Tomares</p>
       <div class="footer-socials">
         <a href="https://instagram.com/laboutiquedsonia" target="_blank" class="footer-social" aria-label="Instagram"><svg class="ico" aria-hidden="true"><use href="#i-insta"/></svg></a>
@@ -232,9 +248,9 @@
     <div class="footer-bottom">
       <span class="footer-copy">© 2026 D'Sonia Boutique · Tomares, Sevilla</span>
       <div class="footer-legal">
-        <a href="#">Aviso legal</a>
-        <a href="#">Privacidad</a>
-        <a href="#">Cookies</a>
+        <a href="aviso-legal.html">Aviso legal</a>
+        <a href="aviso-legal.html#privacidad">Privacidad</a>
+        <a href="aviso-legal.html#cookies">Cookies</a>
       </div>
       <a class="firma-elix" href="https://elixdigitalservices.com" target="_blank" rel="noopener" style="--fe-acento:var(--burdeos)" aria-label="Diseño y desarrollo: ELIX Digital Services (abre su web en otra pestaña)">
         <span class="fe-texto" aria-hidden="true">Diseño y desarrollo</span>
@@ -279,5 +295,7 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up,.fade-left,.fade-right').forEach(el => observer.observe(el));
 </script>
+<script src="firma.js" defer></script>
+<script src="wow.js" defer></script>
 </body>
 </html>
