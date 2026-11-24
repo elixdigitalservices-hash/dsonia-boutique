@@ -52,13 +52,20 @@
     var fin = +el.getAttribute('data-cuenta'), pre = el.getAttribute('data-prefijo') || '';
     if (calma) return;
     el.textContent = pre + '0';
-    visible(el, function () {
+    var contar = function () {
       var t0 = performance.now();
       (function paso(ahora) {
         var k = Math.min(1, (ahora - t0) / 1400), e = 1 - Math.pow(1 - k, 3);
         el.textContent = pre + Math.round(fin * e);
         if (k < 1) requestAnimationFrame(paso);
       })(t0);
+    };
+    visible(el, function () {
+      // con la intro delante, espera a que se descorra la cortina
+      var tras = function () { return !d.classList.contains('dsi-on') || d.classList.contains('dsi-revela'); };
+      if (tras()) return contar();
+      var mo = new MutationObserver(function () { if (tras()) { mo.disconnect(); setTimeout(contar, 350); } });
+      mo.observe(d, { attributes: true, attributeFilter: ['class'] });
     }, 0.6);
   });
 
