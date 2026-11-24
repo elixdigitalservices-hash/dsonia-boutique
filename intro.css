@@ -1,0 +1,146 @@
+/* =========================================
+   INTRO «EL PROBADOR» — se ve una vez por sesión (?intro=1 la fuerza)
+   La firma D'Sonia se escribe a pluma sobre la cortina de un probador; luego vuela al logo
+   de la cabecera, la cortina se recoge a los lados y la portada entra escalonada.
+   ========================================= */
+
+html:not(.dsi-on) .dsi { display: none; }
+html.dsi-on, html.dsi-on body { overflow: hidden; }
+
+.dsi {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  /* red de seguridad: si el JS fallara, la intro se retira sola */
+  animation: dsi-seguro .01s 8s forwards;
+}
+@keyframes dsi-seguro { to { opacity: 0; visibility: hidden; pointer-events: none; } }
+
+/* ---- cortina de terciopelo rosa, en dos paños ---- */
+.dsi-pano {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50.4%;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.38) 0%, rgba(255,255,255,0) 26%, rgba(110,50,68,0) 70%, rgba(110,50,68,.16) 100%),
+    repeating-linear-gradient(90deg, rgba(110,50,68,0) 0px, rgba(110,50,68,.11) 70px, rgba(110,50,68,0) 128px, rgba(255,255,255,.16) 172px, rgba(110,50,68,0) 226px),
+    repeating-linear-gradient(90deg, #e4c1c4 0px, #f2dbdb 16px, #fcefee 27px, #f4dfde 40px, #e8c8ca 54px, #ddb6ba 64px, #e4c1c4 72px);
+  will-change: transform;
+  transition: transform 1.3s cubic-bezier(.77, 0, .18, 1);
+}
+.dsi-pano::after { /* sombra del borde donde se juntan los paños */
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 46px;
+}
+.dsi-pano--izq { left: 0; transform-origin: 0 50%; }
+.dsi-pano--der { right: 0; transform-origin: 100% 50%; }
+.dsi-pano--izq::after { right: 0; background: linear-gradient(90deg, transparent, rgba(110,50,68,.16)); }
+.dsi-pano--der::after { left: 0; background: linear-gradient(270deg, transparent, rgba(110,50,68,.16)); }
+/* al abrir, cada paño se recoge hacia su lado: se desplaza y se frunce */
+.dsi.abre .dsi-pano--izq { transform: translateX(-104%) scaleX(.32); }
+.dsi.abre .dsi-pano--der { transform: translateX(104%) scaleX(.32); }
+
+/* luz cálida de probador + grano fino */
+.dsi-luz {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(58% 40% at 50% 44%, rgba(255,250,248,.92) 0%, rgba(255,246,244,.55) 45%, transparent 75%),
+    radial-gradient(120% 90% at 50% 50%, transparent 60%, rgba(120,52,74,.18) 100%);
+  transition: opacity .7s ease;
+}
+.dsi-grano {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .09;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  transition: opacity .7s ease;
+}
+.dsi.abre .dsi-luz, .dsi.abre .dsi-grano { opacity: 0; }
+
+/* ---- la firma ---- */
+.dsi-centro {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1.2rem, 3vh, 2rem);
+  transform: translateY(-2vh);
+}
+.dsi-firma {
+  width: min(78vw, 600px);
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+.dsi-firma svg { display: block; width: 100%; height: auto; overflow: visible; }
+.dsi-kicker {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  font-family: 'Jost', 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+  font-size: .7rem;
+  letter-spacing: .38em;
+  text-transform: uppercase;
+  color: #b14a72;
+  opacity: 0;
+  transition: opacity .6s ease;
+}
+.dsi-kicker::before, .dsi-kicker::after {
+  content: "";
+  width: 0;
+  height: 1px;
+  background: #b14a72;
+  opacity: .7;
+  transition: width .9s cubic-bezier(.16, 1, .3, 1);
+}
+.dsi.kicker .dsi-kicker { opacity: 1; }
+.dsi.kicker .dsi-kicker::before, .dsi.kicker .dsi-kicker::after { width: 42px; }
+.dsi.abre .dsi-kicker { opacity: 0; transition-duration: .3s; }
+
+.dsi-saltar {
+  position: absolute;
+  bottom: max(1.6rem, env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Jost', 'Helvetica Neue', sans-serif;
+  font-size: .62rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: rgba(75,58,62,.45);
+  opacity: 0;
+  animation: dsi-aparece .6s ease 1.2s forwards;
+}
+.dsi.abre .dsi-saltar { display: none; }
+@keyframes dsi-aparece { to { opacity: 1; } }
+
+/* ---- lo de debajo espera a que se abra la cortina ---- */
+html.dsi-on .header .logo-img { opacity: 0; }
+html.dsi-on .header-inner > :not(.logo) { opacity: 0; }
+html.dsi-on .hero-left > * { opacity: 0; transform: translateY(28px); }
+html.dsi-on .hero .img-abs { transform: scale(1.14); }
+
+html.dsi-revela .header-inner > :not(.logo) { opacity: 1; transition: opacity .9s ease .5s; }
+html.dsi-revela .hero-left > * {
+  opacity: 1;
+  transform: none;
+  transition: opacity .9s ease, transform 1.2s cubic-bezier(.16, 1, .3, 1);
+}
+html.dsi-revela .hero-left > :nth-child(2) { transition-delay: .1s; }
+html.dsi-revela .hero-left > :nth-child(3) { transition-delay: .22s; }
+html.dsi-revela .hero-left > :nth-child(4) { transition-delay: .32s; }
+html.dsi-revela .hero-left > :nth-child(5) { transition-delay: .42s; }
+html.dsi-revela .hero .img-abs { transform: none; transition: transform 2.6s cubic-bezier(.16, 1, .3, 1); }
+html.dsi-aterriza .header .logo-img { opacity: 1; }
